@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="devModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="30" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="25" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TransactionDateTime" Type="datetime" />
+    <Property Name="Amount" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="3" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="Customer" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="devModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
